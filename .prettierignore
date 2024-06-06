@@ -1,0 +1,10 @@
+build
+coverage
+env
+!.github
+dist
+!.vitepress
+.vitepress/cache
+.vitepress/dist
+app-example
+.expo
