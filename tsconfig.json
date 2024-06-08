@@ -6,11 +6,12 @@
       "@/*": ["./*"],
       "@assets/*": ["./assets/*"],
       "@utils/*": ["./utils/*"],
+      "@types/*": ["./types/*"],
       "@hooks/*": ["./hooks/*"],
       "@constants/*": ["./constants/*"],
       "@stores/*": ["./stores/*"],
       "@components/*": ["./components/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "nativewind-env.d.ts"]
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "./env.d.ts", "./expo-env.d.ts", "./nativewind-env.d.ts"]
 }

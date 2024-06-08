@@ -8,28 +8,4 @@ module.exports = {
     jest: true
   }
   //  "extends": ["@antfu"]
-  //  "rules": {
-  //    "arrow-parens": ["error", "as-needed", {
-  //      "requireForBlockBody": true
-  //    }],
-  //    "react/jsx-props-no-spreading": "off",
-  //    "react/jsx-sort-props": ["error", {
-  //      "reservedFirst": ["key"]
-  //    }],
-  //    "react/require-default-props": "off",
-  //    "react/sort-prop-types": "error",
-  //    "react/state-in-constructor": ["error", "never"],
-  //    "semi-spacing": "warn"
-  //  }
-  //  "overrides": [
-  //    {
-  //      "files": [
-  //        "sample/**",
-  //        "test/**"
-  //      ],
-  //      "rules": {
-  //        "import/no-unresolved": "off"
-  //      }
-  //    }
-  //  ]
 };

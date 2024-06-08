@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-export const BASE_URL = 'https://fakestoreapi.com';
-
 export const api = axios.create({
-  baseURL: BASE_URL
+  baseURL: process.env.EXPO_PUBLIC_BASE_URL
 });
