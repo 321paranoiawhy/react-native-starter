@@ -22,7 +22,7 @@ export default function Index() {
       style={{
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
@@ -42,27 +42,27 @@ export default function RootLayout() {
 }
 `;
 
-fs.rename(oldDirPath, newDirPath, (error) => {
+fs.rename(oldDirPath, newDirPath, error => {
   if (error) {
     return console.error(`Error renaming directory: ${error}`);
   }
   console.log('/app moved to /app-example.');
 
-  fs.mkdir(newAppDirPath, { recursive: true }, (error) => {
+  fs.mkdir(newAppDirPath, {recursive: true}, error => {
     if (error) {
       return console.error(`Error creating new app directory: ${error}`);
     }
     console.log('New /app directory created.');
 
     const indexPath = path.join(newAppDirPath, 'index.tsx');
-    fs.writeFile(indexPath, indexContent, (error) => {
+    fs.writeFile(indexPath, indexContent, error => {
       if (error) {
         return console.error(`Error creating index.tsx: ${error}`);
       }
       console.log('app/index.tsx created.');
 
       const layoutPath = path.join(newAppDirPath, '_layout.tsx');
-      fs.writeFile(layoutPath, layoutContent, (error) => {
+      fs.writeFile(layoutPath, layoutContent, error => {
         if (error) {
           return console.error(`Error creating _layout.tsx: ${error}`);
         }

@@ -1,50 +1,67 @@
-# Welcome to your Expo app 👋
+## TODO
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+- 如何使用类似 `UnoCSS` 的 [Attributify](https://unocss.dev/presets/attributify) 类名属性化写法
+- 自定义 `Debug` 工具, 类似微信小程序的 `v-console`
+- 集成 `iconify`
 
-## Get started
+## tailwind
 
-1. Install dependencies
+- `1rem` 对应 `16px`
 
-   ```bash
-   npm install
-   ```
+### 插件
 
-2. Start the app
+#### @tailwindcss/aspect-ratio
 
-   ```bash
-    npx expo start
-   ```
+- [@tailwindcss/aspect-ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+- [tailwindcss-aspect-ratio](https://github.com/webdna/tailwindcss-aspect-ratio) 已废弃, 推荐使用 `@tailwindcss/aspect-ratio`
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+`aspect-ratio` 属性兼容性较差, 可使用 `@tailwindcss/aspect-ratio` 插件以兼容更低版本的浏览器
 
 ```bash
-npm run reset-project
+pnpm add @tailwindcss/aspect-ratio -D
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+`tailwind.config.js`:
 
-## Learn more
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // ...
+  plugins: [require('@tailwindcss/aspect-ratio')]
+};
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 颜色 `text-color`
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- `text-white` 纯白色文字 `color: rgb(255 255 255);`
+- `text-black` 纯黑色文字 `color: rgb(0 0 0);`
+- `text-transparent` 透明文字 `color: transparent;`
+- 设置透明度
+  - `text-blue-600/75` 透明度 `0.75`
+  - `text-blue-600/[.06]` 透明度 `0.06`
+- 任意值
+  - `text-[#50d71e]` <=> `color: #50d71e;`
 
-## Join the community
+### 字体
 
-Join our community of developers creating universal apps.
+#### 字体大小 `font-size`
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- `text-2xl` <=> `font-size: 1.5rem;` (`24px`), 同时设定 `line-height: 2rem;` (`32px`)
+- `text-4xl` <=> `font-size: 2.25rem;` (`36px`), 同时设定 `line-height: 2.5rem;` (`40px`)
+- 任意值
+  - `text-[14px]` <=> `font-size: 14px;`
+  - `text-[14px]/[20px]` <=> `font-size: 14px; line-height: 20px;`
+
+本项目常用:
+
+- `text-2xl/[43px]` <=> `font-size: 1.5rem; line-height: 43px;`
+
+#### 字重 `font-weight`
+
+- `font-light` <=> `font-weight: 300;`
+- `font-normal` <=> `font-weight: 400;`
+- `font-medium` <=> `font-weight: 500;`
+- `font-semibold` <=> `font-weight: 600;`
+- `font-bold` <=> `font-weight: 700;`
+
+#### 字体颜色 `color`

@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = function (api) {
   api.cache(false);
 
@@ -16,8 +14,7 @@ module.exports = function (api) {
           // .env .env.local .env.[mode] .env.[mode].local
           path: 'env/.env',
           safe: true,
-          allowUndefined: false,
-          verbose: true
+          allowUndefined: false
         }
       ]
     ]
