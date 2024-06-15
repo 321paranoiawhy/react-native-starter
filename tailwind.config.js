@@ -4,8 +4,26 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
   // 指定 tailwind 语法生效的文件
   content: ['./app/**/*.{js,jsx,ts,tsx}', './src/app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js.jsx,ts,tsx}'],
+  // primary 1
+  // secondary 2
+  // tertiary 3
+  // quaternary 4
+  // quinary 5
+  // senary 6
+  // octonary 7
+  // nonary 8
+  // denary 9
+  // 10 does not exist
+  // duodenary 11
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        primary: {},
+        secondary: {},
+        tertiary: {},
+        quaternary: {}
+      }
+    }
   },
   plugins: [
     // aspect-ratio polyfill

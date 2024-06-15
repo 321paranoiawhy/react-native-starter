@@ -8,6 +8,7 @@ export interface BasicButtonProps {
    */
   withDefaultClass?: boolean;
   buttonClass?: TClass;
+  textClass?: TClass;
 }
 
 export interface GroupedButtonProps {

@@ -4,6 +4,7 @@ import {Image} from 'expo-image';
 import {GroupedButton} from '@components/button/grouped';
 import {BasicButtonProps} from 'types/button';
 import {useState} from 'react';
+import {Colors, Switch} from 'react-native-ui-lib';
 
 // 主页面
 export default function Main() {
@@ -36,10 +37,17 @@ export default function Main() {
     }
   ];
 
+  // 消费者
+  const [consumer, setConsumer] = useState('');
+  // 物料
+  const [material, setMaterial] = useState('');
+
+  const [switchState, setSwitchState] = useState(false);
+
   const buttonProps: BasicButtonProps[] = [
-    {title: '清零', onPress: () => console.log('清零'), buttonClass: 'flex-1 ml-[12px]'},
+    {title: '清零', onPress: () => console.log('清零'), buttonClass: 'flex-1'},
     {title: '重置', onPress: () => console.log('重置'), buttonClass: 'flex-1'},
-    {title: '上传', onPress: () => console.log('上传'), buttonClass: 'flex-1 mr-[12px]'}
+    {title: '上传', onPress: () => console.log('上传'), buttonClass: 'flex-1'}
   ];
 
   return (
@@ -67,11 +75,23 @@ export default function Main() {
           </View>
         )}
 
-        <View className="flex flex-1 flex-row">
-          <View className=" flex-grow-2 bg-red-500"></View>
-          <View className=" flex-grow-1  bg-blue-500"></View>
+        <Switch
+          onColor={Colors.purple30}
+          offColor={Colors.purple60}
+          value={switchState}
+          onValueChange={(v: boolean) => setSwitchState(v)}
+        />
+
+        <View className="flex flex-1 flex-row gap-x-3 ml-[15px] mr-3 my-[18px]">
+          <View className="grow bg-red-500"></View>
+          <View className="  bg-blue-500 w-[calc((100%-24px)/3)]"></View>
         </View>
-        <GroupedButton wrapperClass="mt-auto mb-[24px]" buttonProps={buttonProps}></GroupedButton>
+
+        {/*不使用 !important 无法覆盖样式, gap-x-[27px] 和 gap-x-3 取决于二者在打包产物中出现的顺序, 而非 clsx 中参数顺序 */}
+        <GroupedButton
+          wrapperClass="mt-auto ml-[15px] mr-3 mb-[24px] !gap-x-3"
+          buttonProps={buttonProps}
+        ></GroupedButton>
       </LinearGradient>
     </View>
   );

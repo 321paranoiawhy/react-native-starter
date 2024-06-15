@@ -1,12 +1,13 @@
 import {Stack} from 'expo-router';
-import {Button, View} from 'react-native';
+import {Button} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import '@assets/styles/global.css';
 import FeedbackLoading, {loadingRef} from '@components/feedback/loading';
 
 export default function RootLayout() {
   return (
     // 全局共用 header 样式
-    <>
+    <SafeAreaProvider>
       <Stack
         screenOptions={{
           headerShown: false,
@@ -24,6 +25,6 @@ export default function RootLayout() {
       </Stack>
       {/*  TODO rename to: Feedback.Loading */}
       <FeedbackLoading ref={loadingRef}></FeedbackLoading>
-    </>
+    </SafeAreaProvider>
   );
 }
