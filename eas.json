@@ -1,0 +1,44 @@
+{
+  "build": {
+    "preview": {
+      "channel": "preview",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "WMS_ENV": "test"
+      }
+    },
+    "development": {
+      "channel": "development",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "WMS_ENV": "development"
+      }
+    },
+    "release": {
+      "channel": "release",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "WMS_ENV": "production"
+      }
+    },
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "preview3": {
+      "developmentClient": true
+    },
+    "preview4": {
+      "distribution": "internal"
+    },
+    "production": {}
+  }
+}

@@ -3,14 +3,18 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
+      // root folder
       "@/*": ["./*"],
       "@assets/*": ["./assets/*"],
-      "@utils/*": ["./utils/*"],
-      "types/*": ["./types/*"], // 避免与 @types/node 等冲突
-      "@hooks/*": ["./hooks/*"],
-      "@constants/*": ["./constants/*"],
-      "@stores/*": ["./stores/*"],
-      "@components/*": ["./components/*"]
+      // src folder
+      "@utils/*": ["./src/utils/*"],
+      "types/*": ["./src/types/*"], // 避免与 @types/node 等冲突
+      "@hooks/*": ["./src/hooks/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@api/*": ["./src/api/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@stores/*": ["./src/stores/*"],
+      "@components/*": ["./src/components/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "env.d.ts", "nativewind-env.d.ts", "expo-env.d.ts"]

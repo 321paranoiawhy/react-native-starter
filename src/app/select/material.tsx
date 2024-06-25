@@ -30,7 +30,15 @@ type TItem = {
 
 // 物料
 const MATERIAL: TItem[] = [
-  {name: '常用', children: [{name: '透明PET膜 (无胶)'}]},
+  {
+    name: '常用',
+    children: [
+      {name: '透明PET膜 (无胶)'},
+      {name: '透明PET膜 (无胶)'},
+      {name: '透明PET膜 (无胶)'},
+      {name: '透明PET膜 (无胶)'}
+    ]
+  },
   {name: '塑料'},
   {name: '金属'},
   {name: '纸类'}
@@ -38,7 +46,21 @@ const MATERIAL: TItem[] = [
 
 // 容器皮重
 const CONTAINER_TARE_WEIGHT = [
-  {name: '常用', children: [{name: '660L 工业垃圾箱'}]},
+  {
+    name: '常用',
+    children: [
+      {name: '660L工业垃圾箱'},
+      {name: '1100L工业垃圾箱'},
+      {name: '123L工业垃圾箱'},
+      {name: '456L工业垃圾箱'},
+      {name: '789L工业垃圾箱'},
+      {name: '660L工业垃圾箱'},
+      {name: '1100L工业垃圾箱'},
+      {name: '123L工业垃圾箱'},
+      {name: '456L工业垃圾箱'},
+      {name: '789L工业垃圾箱'}
+    ]
+  },
   {name: '中转框'},
   {name: '吨包'},
   {name: '工业垃圾箱'}
@@ -61,7 +83,6 @@ const TYPE_MAP: Record<string, {text: string; key: 'MATERIAL' | 'CONTAINER_TARE_
 export default function SelectConsumer() {
   // https://docs.expo.dev/router/reference/search-parameters/#statically-typed-search-parameters
   const {type, titlePrefix} = useLocalSearchParams<{type: keyof typeof TYPE_MAP; titlePrefix: string}>();
-  console.log(type, titlePrefix);
 
   const [firstLevel, setFirstLevel] = useState(0);
 
@@ -72,15 +93,28 @@ export default function SelectConsumer() {
     <View className="flex-1 bg-[#004F33]">
       <CommonHeader title={(titlePrefix || '选择') + TYPE_MAP[type as keyof typeof TYPE_MAP]?.text}></CommonHeader>
 
-      <View className="flex flex-row flex-wrap gap-4">
+      <View className="flex flex-row flex-wrap gap-4 my-[9px] mx-4">
         {TYPE_MAP[type!]?.value?.map((item, index) => (
           <BasicButton
             key={item.name}
             title={item.name}
             buttonClass="bg-[#003F38] w-[150px] rounded-[10px]"
             textClass={index === firstLevel ? activeFirstLevelClass : inactiveFirstLevelClass}
+            onPress={() => setFirstLevel(index)}
           ></BasicButton>
         ))}
+      </View>
+
+      <View className="flex-1 mx-4 mb-6 bg-[rgba(0, 0, 0, 0.12)] overflow-y-auto bg-[rgba(0,0,0,0.12)]">
+        <View className="grid grid-cols-3 gap-x-6 gap-y-[9px] p-5">
+          {TYPE_MAP[type!]?.value?.[firstLevel]?.children?.map((item, index) => (
+            <View key={index} className="bg-[rgba(0,0,0,0.12)] h-[160px]">
+              <Text className="text-[rgba(196,196,196,0.65)] text-[22px]/[32px] text-center mt-auto mb-3">
+                {item.name}
+              </Text>
+            </View>
+          ))}
+        </View>
       </View>
     </View>
   );

@@ -13,13 +13,16 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "buildNumber": "0.0.1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.lh.wms",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
@@ -30,6 +33,19 @@
     "experiments": {
       "typedRoutes": true
     },
-    "extra": {}
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b606dacb-9ea3-4de7-84e9-6527d8d1f9db"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b606dacb-9ea3-4de7-84e9-6527d8d1f9db"
+    }
   }
 }

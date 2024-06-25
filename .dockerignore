@@ -1,0 +1,15 @@
+.expo
+.git
+.github
+.vscode
+.webstorm
+.idea
+node_modules
+
+.eslintrc.js
+.prettierignore
+.prettierrc.js
+
+expo-env.d.ts
+output.css
+README.md

@@ -16,7 +16,6 @@ export default function BasicButton(props: BasicButtonProps) {
 
   const defaultTextClasses = 'c-black text-center text-2xl font-medium';
   const textClasses = clsx(withDefaultClass && defaultTextClasses, textClass);
-  console.log(textClass);
 
   return (
     <Pressable onPress={onPress} className={buttonClasses}>

@@ -1,27 +1,16 @@
 import {Stack} from 'expo-router';
-import {Button} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import '@assets/styles/global.css';
 import FeedbackLoading, {loadingRef} from '@components/feedback/loading';
+import * as DevClient from 'expo-dev-client';
+
+console.log('[DevClient.isDevelopmentBuild]', DevClient.isDevelopmentBuild());
 
 export default function RootLayout() {
   return (
-    // 全局共用 header 样式
     <SafeAreaProvider>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          headerStyle: {
-            backgroundColor: '#f4511e'
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold'
-          },
-          headerRight: () => <Button onPress={() => alert('This is a button!')} title="Info" color="#f4511e" />
-        }}
-      >
-        <Stack.Screen name="index" options={{title: '首页 header title'}} />
+      <Stack screenOptions={{headerShown: false}}>
+        <Stack.Screen name="index" />
       </Stack>
       {/*  TODO rename to: Feedback.Loading */}
       <FeedbackLoading ref={loadingRef}></FeedbackLoading>

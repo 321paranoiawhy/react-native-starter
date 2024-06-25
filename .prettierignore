@@ -9,3 +9,5 @@ dist
 app-example
 .expo
 pnpm-lock.yaml
+android
+ios
